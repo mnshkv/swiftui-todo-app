@@ -30,4 +30,8 @@ class TasksViewTestCase: XCTestCase {
     func testDeleteTask() {
         taskViewRobot.deleteTask()
     }
+    
+    func testBrokeTestGithubActions() {
+        XCTAssertTrue(false, "test for github actions")
+    }
 }
