@@ -1,16 +1,18 @@
 name: Swift
+
 on:
   push:
-    branches: [master]
+    branches:
+      master
   pull_request:
-    branches: [master]
+    branches:
+      master
+
 jobs:
-  macos:
+  build:
     runs-on: macOS-latest
     steps:
-      - name: Checkout
+      - name: Test
         uses: actions/checkout@v1
       - name: Build and Test
-        run: swift test
-        env:
-          DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+        run:  xcodebuild test -project todo.xcodeproj -scheme todo -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5' build test
